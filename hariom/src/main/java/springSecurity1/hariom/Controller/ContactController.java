@@ -10,4 +10,7 @@ public class ContactController {
     public String saveContactInquiryDetails(){
         return "this is contacts";
     }
+    public String deleteUserById(){
+        return "this is the delete mehtod ";
+    }
 }
