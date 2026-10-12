@@ -9,14 +9,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-public class ProjectSecurityConfig {
+public class    ProjectSecurityConfig {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 //        http.authorizeHttpRequests((requests) -> ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.anyRequest()).denyAll());
 //        http.authorizeHttpRequests((requests) -> ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.anyRequest()).permitAll());
 
-        http.csrf(csrfConfig -> csrfConfig.disable()); // csrf token ko disable kiya he
+        http
+//                .redirectToHttps(Customizer.withDefaults())
+                .csrf(csrfConfig -> csrfConfig.disable()); // csrf token ko disable kiya he
 
         http.authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/myBalance" , "/myCards" , "/myLoans" , "/myAccount").authenticated()

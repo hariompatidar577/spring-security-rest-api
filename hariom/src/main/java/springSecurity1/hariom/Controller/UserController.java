@@ -46,8 +46,10 @@ public class UserController {
     @GetMapping("/login")
     public ResponseEntity<String> Login(@RequestBody Customer customer){
 
+        System.out.println( " register this the customer drtails" );
+        return registerUser(customer);
+//        return null;
 
-        return null;
     }
 
 
